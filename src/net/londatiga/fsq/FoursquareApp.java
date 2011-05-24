@@ -40,7 +40,7 @@ public class FoursquareApp {
 	/**
 	 * Callback url, as set in 'Manage OAuth Costumers' page (https://developer.foursquare.com/)
 	 */
-	public static final String CALLBACK_URL = "javelt://connect";
+	public static final String CALLBACK_URL = "myapp://connect";
 	private static final String AUTH_URL = "https://foursquare.com/oauth2/authenticate?response_type=code";
 	private static final String TOKEN_URL = "https://foursquare.com/oauth2/access_token?grant_type=authorization_code";	
 	private static final String API_URL = "https://api.foursquare.com/v2";
