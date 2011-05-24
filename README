@@ -1,5 +1,7 @@
 Android Fourquare Integration
 -----------------------------
 
-This is an example on how to connect Foursquare from Android app. It used dialog based authentication just like my
-previous Twitter lib https://github.com/lorensiuswlt/AndroidTwitter 
+This is an example on how to connect Foursquare from Android app. It uses dialog based authentication just like my
+previous Twitter lib https://github.com/lorensiuswlt/AndroidTwitter.
+
+Feel free to use it ;)
