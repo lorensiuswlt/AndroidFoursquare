@@ -38,8 +38,8 @@ public class Main extends Activity {
 	private ArrayList<FsqVenue> mNearbyList;
 	private ProgressDialog mProgress;
 	
-	public static final String CLIENT_ID = "your client id";
-	public static final String CLIENT_SECRET = "your client secret";
+	public static final String CLIENT_ID = "your_client_id_here";
+	public static final String CLIENT_SECRET = "your_client_secret_here";
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {

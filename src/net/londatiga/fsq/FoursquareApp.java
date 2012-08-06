@@ -9,7 +9,9 @@ import java.io.InputStreamReader;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -95,7 +97,7 @@ public class FoursquareApp {
 					
 					urlConnection.setRequestMethod("GET");
 					urlConnection.setDoInput(true);
-					urlConnection.setDoOutput(true);
+					//urlConnection.setDoOutput(true);
 					
 					urlConnection.connect();
 					
@@ -124,7 +126,8 @@ public class FoursquareApp {
 				int what = 0;
 		
 				try {
-					URL url = new URL(API_URL + "/users/self?oauth_token=" + mAccessToken);
+					String v	= timeMilisToString(System.currentTimeMillis()); 
+					URL url 	= new URL(API_URL + "/users/self?oauth_token=" + mAccessToken + "&v=" + v);
 					
 					Log.d(TAG, "Opening URL " + url.toString());
 					
@@ -132,7 +135,7 @@ public class FoursquareApp {
 					
 					urlConnection.setRequestMethod("GET");
 					urlConnection.setDoInput(true);
-					urlConnection.setDoOutput(true);
+					//urlConnection.setDoOutput(true);
 					
 					urlConnection.connect();
 					
@@ -198,8 +201,9 @@ public class FoursquareApp {
 		ArrayList<FsqVenue> venueList = new ArrayList<FsqVenue>();
 		
 		try {
+			String v	= timeMilisToString(System.currentTimeMillis()); 
 			String ll 	= String.valueOf(latitude) + "," + String.valueOf(longitude);
-			URL url 	= new URL(API_URL + "/venues/search?ll=" + ll + "&oauth_token=" + mAccessToken);
+			URL url 	= new URL(API_URL + "/venues/search?ll=" + ll + "&oauth_token=" + mAccessToken + "&v=" + v);
 			
 			Log.d(TAG, "Opening URL " + url.toString());
 			
@@ -207,7 +211,7 @@ public class FoursquareApp {
 			
 			urlConnection.setRequestMethod("GET");
 			urlConnection.setDoInput(true);
-			urlConnection.setDoOutput(true);
+			//urlConnection.setDoOutput(true);
 			
 			urlConnection.connect();
 			
@@ -282,6 +286,14 @@ public class FoursquareApp {
 		return str;
 	}
 	
+	private String timeMilisToString(long milis) {
+		SimpleDateFormat sd = new SimpleDateFormat("yyyyMMdd");
+		Calendar calendar   = Calendar.getInstance();
+		
+		calendar.setTimeInMillis(milis);
+		
+		return sd.format(calendar.getTime());
+	}
 	public interface FsqAuthListener {
 		public abstract void onSuccess();
 		public abstract void onFail(String error);
